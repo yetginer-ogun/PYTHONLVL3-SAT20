@@ -15,3 +15,17 @@ Daha fazla test yazabilirseniz harika olur!
 1. Şifrenin uzunluğunun belirtilen uzunlukla eşleşip eşleşmediğini test edin  
 2. Arka arkaya oluşturulan iki şifrenin farklı olup olmadığını test edin 
 """
+
+
+def test_password_length():
+    password = generate_password(15)
+    assert len(password) == 15, 'Sifre uzunlugu olmaz'
+
+def test_regenerate_password():
+    password1 = generate_password(15)
+    password2 = generate_password(15)
+    assert password1 != password2 , 'Same passwords'
+
+def test_minimum_length():
+    password = generate_password(3)
+    assert password == 'sifre kisa'
